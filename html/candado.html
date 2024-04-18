@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Encuentra la llave</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  #tablero {
+    margin-top: 20px;
+  }
+  .celda {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #000;
+    display: inline-block;
+    background-color: #eee;
+    cursor: pointer;
+  }
+  .monstruo {
+    background-color: red;
+  }
+  #boton-oculto {
+    display: none;
+    margin-top: 20px;
+  }
+  #boton-oculto button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 2px solid #000;
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  #boton-oculto button:hover {
+    background-color: #000;
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+
+<h1>Encuentra la Llave</h1>
+
+<p>Haz clic en las celdas para encontrar la lalve:</p>
+
+<div id="tablero">
+  <!-- Se generará dinámicamente -->
+</div>
+
+<p id="mensaje"></p>
+
+<div id="boton-oculto">
+  <button onclick="redirigir()">HAS DESBLOQUEADO UN REGALO!</button>
+</div>
+
+<script>
+// Tamaño del tablero (en número de celdas)
+var filas = 10;
+var columnas = 10;
+
+// Posición aleatoria del monstruo
+var posicionMonstruo = {
+  fila: Math.floor(Math.random() * filas),
+  columna: Math.floor(Math.random() * columnas)
+};
+
+// Función para inicializar el tablero
+function inicializarTablero() {
+  var tablero = document.getElementById("tablero");
+
+  for (var i = 0; i < filas; i++) {
+    for (var j = 0; j < columnas; j++) {
+      var celda = document.createElement("div");
+      celda.classList.add("celda");
+      celda.dataset.fila = i;
+      celda.dataset.columna = j;
+      celda.addEventListener("click", clicEnCelda);
+      tablero.appendChild(celda);
+    }
+    tablero.appendChild(document.createElement("br"));
+  }
+}
+
+// Función para manejar el clic en una celda
+function clicEnCelda(event) {
+  var filaClic = parseInt(event.target.dataset.fila);
+  var columnaClic = parseInt(event.target.dataset.columna);
+
+  if (filaClic === posicionMonstruo.fila && columnaClic === posicionMonstruo.columna) {
+    document.getElementById("mensaje").textContent = "¡Has encontrado la lalve! ¡Felicidades!";
+    event.target.classList.add("monstruo");
+    mostrarBoton();
+    // Deshabilitar el clic en otras celdas
+    var celdas = document.querySelectorAll(".celda");
+    celdas.forEach(function(celda) {
+      celda.removeEventListener("click", clicEnCelda);
+    });
+  } else {
+    document.getElementById("mensaje").textContent = "No hay llave por aquí. Sigue buscando...";
+    event.target.style.backgroundColor = "#ddd";
+  }
+}
+
+// Función para mostrar el botón después de encontrar al monstruo
+function mostrarBoton() {
+  document.getElementById("boton-oculto").style.display = "block";
+}
+
+// Función para redirigir a otra página
+function redirigir() {
+  window.location.href = "regalo1.html"; // Cambia "otra_pagina.html" por la ruta de la página a la que quieres redirigir
+}
+
+// Inicializar el tablero cuando se carga la página
+window.onload = function() {
+  inicializarTablero();
+};
+</script>
+
+</body>
+</html>

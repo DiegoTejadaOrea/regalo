@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCAPE ROOM</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            background-color: black;
+            color: azure;
+            padding: 20px; /* Agregamos un poco de espacio alrededor del contenido */
+        }
+        .image-container {
+            text-align: center;
+            margin-top: 20px; /* Espacio entre el texto y la imagen */
+            position: relative;
+        }
+        #overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>ENHORABUENA, HAS HECHO UN MUY BUEN TRABAJO</h1>
+    <p>Para celebrar tu cumpleaños, qué mejor manera que hacer un scape room donde poner a prueba tu inteligencia y capacidad resolutiva. Espero que esta vez no esperes hasta el último segundo para usar la tarjeta de salida...</p>
+    <div id="imageContainer" class="image-container">
+        <img src="../imgs/BONO.jpg" alt="Imagen de Bono" usemap="#image-map">
+        <img id="overlay" src="../imgs/BONO2.jpg" alt="Imagen superpuesta">
+    </div>
+    <map name="image-map">
+        <area shape="circle" coords="413,457,66"  onclick="redirigir()" onmouseover="showOverlay()" onmouseout="hideOverlay()">
+    </map>
+    <script>
+        function showOverlay() {
+            document.getElementById("overlay").style.display = "block";
+        }
+
+        function hideOverlay() {
+            document.getElementById("overlay").style.display = "none";
+        }
+        function redirigir() {
+            window.location.href = "regalo2.html"; // Cambia "regalo2.html" por la ruta de la página a la que quieres redirigir
+        }
+    </script>
+</body>
+</html>

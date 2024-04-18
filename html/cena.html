@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menú</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .menu {
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+
+    .menu-title {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .menu-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .menu-item {
+      width: 300px;
+      padding: 20px;
+      margin: 10px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      text-align: center; /* Centrar texto */
+      transition: all 0.3s ease;
+    }
+
+    .menu-item:hover {
+      background-color: #f0f0f0;
+      transform: translateY(-5px);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu-item img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+
+    .menu-item h3 {
+      margin-top: 10px;
+      font-size: 20px;
+      text-align: center;
+    }
+
+    .menu-item p {
+      font-size: 16px;
+    }
+
+    .category {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .h3 {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+    <div class="menu">
+      <h1 class="menu-title">Menú del Día</h1>
+      
+      <!-- Entrantes -->
+      <h2 class="category">Entrantes</h2>
+      <ul class="menu-list">
+        <li class="menu-item">
+          <img src="../imgs/imagen1.jpg" alt="Plato 1">
+          <h3>Sticks de verduras</h3>
+          <p>Sticks de verdura para untar en salsa de verduras</p>
+          <p>Precio: $5.99</p>
+        </li>
+        <!-- Agregar más entrantes si es necesario -->
+      </ul>
+      
+      <!-- Platos Principales -->
+      <h2 class="category">Platos Principales</h2>
+      <ul class="menu-list">
+        <li class="menu-item">
+          <img src="../imgs/imagen2.jpg" alt="Plato 2">
+          <h3>Verduras</h3>
+          <p>Verduras fritas con salteado de verduras y salsa de verduras</p>
+          <p>Precio: $14.99</p>
+        </li>
+        <!-- Agregar más platos principales si es necesario -->
+      </ul>
+      
+      <!-- Postres -->
+      <h2 class="category">Postres</h2>
+      <ul class="menu-list">
+        <li class="menu-item">
+          <img src="../imgs/imagen3.jpg" alt="Plato 3">
+          <h3>Pastel de Verduras</h3>
+          <p>Delicioso pastel de verdura con glaseado de verdura.</p>
+          <p>Precio: $6.99</p>
+        </li>
+        <!-- Agregar más postres si es necesario -->
+      </ul>
+      
+      <!-- Bebidas -->
+      <h2 class="category">Bebidas</h2>
+      <ul class="menu-list">
+        <li class="menu-item">
+          <h3>Refrescos</h3>
+          <p>Refresco de cola, limonada, naranjada.</p>
+          <p>Precio: $2.00</p>
+        </li>
+        <li class="menu-item">
+          <h3>Jugos Naturales</h3>
+          <p>Jugos frescos de naranja, piña, manzana.</p>
+          <p>Precio: $3.00</p>
+        </li>
+      </ul>
+    </div>
+  </body>
+  </html>

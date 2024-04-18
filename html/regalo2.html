@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitación a Cenar</title>
+  <style>
+    body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.invitation {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.riddle {
+  margin-top: 30px;
+}
+
+input[type="text"] {
+  padding: 5px;
+  margin-top: 10px;
+}
+
+button {
+  padding: 8px 20px;
+  margin-top: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}</style>
+
+</head>
+<body>
+  <div class="invitation">
+    <h1>¡Invitación a Cenar!</h1>
+    <p>¡Hola Paula!</p>
+    <p>Quiero invitarte a cenar donde tú quieras <span id="restaurantName">...</span>.</p>
+    <p>Pero primero, vamos a jugar un pequeño juego de adivinanzas relacionadas con la comida. ¿Estás lista?</p>
+    <div class="riddle">
+      <p>¿Qué comí en Sendaviva que estaba tan bueno?</p>
+      <input type="text" id="answerInput">
+      <button onclick="checkAnswer()">¡Adivinar!</button>
+      <p id="result"></p>
+    </div>
+  </div>
+  <script>
+    function checkAnswer() {
+      const answerInput = document.getElementById('answerInput');
+      const result = document.getElementById('result');
+      const correctAnswer = 'alitas'; // Cambia la respuesta según lo que desees
+
+      if (answerInput.value.toLowerCase() === correctAnswer) {
+        result.textContent = '¡Correcto! ¡Vamos a ver el menú!';
+        // Redirección a otra página
+        setTimeout(function(){
+          window.location.href = 'cena.html'; // Cambia "otra_pagina.html" por la URL de la página a la que quieras redirigir
+        }, 2000); // Cambia el valor de 2000 (en milisegundos) por el tiempo que desees que pase antes de la redirección
+      } else {
+        result.textContent = 'Incorrecto. ¿Quieres intentarlo de nuevo?';
+      }
+    }
+  </script>
+</body>
+</html>
